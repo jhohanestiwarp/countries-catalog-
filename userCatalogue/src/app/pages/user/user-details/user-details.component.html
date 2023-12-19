@@ -1,0 +1,9 @@
+<div class="w-full h-full py-10 flex flex-col items-center justify-center">
+  <app-user-info [user]="user"></app-user-info>
+  <br />
+  <hr />
+  <h3 class="text-xl my-4 font-bold leading-none text-gray-900 dark:text-white">
+    Posts
+  </h3>
+  <app-user-post *ngFor="let post of posts" [post]="post"></app-user-post>
+</div>

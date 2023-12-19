@@ -1,0 +1,42 @@
+<div class="w-full h-full py-10 px-10 md:px-20 flex justify-center flex-col">
+  <div *ngIf="loading">
+    <h3>Cargando...</h3>
+  </div>
+
+  <a *ngIf="!loading" routerLink="/album/new"
+    class="w-40 items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+    Agregar pais
+  </a>
+  <br>
+
+  <div class="grid grid-cols-3 md:grid-cols-4 gap-4">
+    <div *ngFor="let album of albums">
+
+
+      <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+
+        <img class="max-w-full" [src]="album.img" alt="image description" width="100%" />
+        <div class="p-5">
+          <a href="#">
+            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{album.countryName}}</h5>
+          </a>
+
+
+          <ul
+            class="w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+            <li class="w-full px-4 py-2 border-b border-gray-200 rounded-t-lg dark:border-gray-600">Continente:
+              {{album.continentName}}</li>
+            <li class="w-full px-4 py-2 border-b border-gray-200 dark:border-gray-600">Población: {{album.population}}
+            </li>
+            <li class="w-full px-4 py-2 border-b border-gray-200 dark:border-gray-600">Capital: {{album.capital}} </li>
+          </ul>
+          <br>
+          <button
+            (click)="deletePais(album.id)"
+            class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-red-700 rounded-lg hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">
+            Eliminar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
