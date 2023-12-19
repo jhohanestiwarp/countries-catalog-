@@ -7,11 +7,7 @@ const routes: Routes = [
     path: '',
     component: LayoutComponent,
     children: [
-      {
-        path: '',
-        loadChildren: () =>
-          import('../../pages/user/user.module').then((m) => m.UserModule),
-      },
+    
       {
         path: 'album',
         loadChildren: () =>
